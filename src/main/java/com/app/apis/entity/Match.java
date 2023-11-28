@@ -49,7 +49,12 @@ public class Match {
 	private Date date = new Date();
 	
 	
-	//Custom method
+	/*
+	 * Set match status
+	 * 
+	 * it checks from the method if textComplete is NULL then sets the status as LIVE
+	 * otherwise sets the status as COMPLETED
+	 */
 	public void setMatchStatus() {
 		
 		if (textComplete.isBlank()) {

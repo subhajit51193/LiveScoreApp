@@ -15,18 +15,32 @@ import org.springframework.stereotype.Service;
 import com.app.apis.entity.Match;
 import com.app.apis.repository.MatchRepository;
 
+/*
+ * This class contains all the implementation logics related to matcheService
+ */
 @Service
 public class MatchServiceImpl implements MatchService{
 
 	@Autowired
 	private MatchRepository matchRepository;
 	
+	/*
+	 * Get all matches from database
+	 * 
+	 * @return : List<Matches> -> List of all matches which are currently stored in database
+	 */
 	@Override
 	public List<Match> getAllMatches() {
 		
 		return this.matchRepository.findAll();
 	}
 
+	/*
+	 * Get all live matches from link specified below
+	 * 
+	 * @return : List<Matches> -> List of all matches which are currently live
+	 * @throws : IOException -> Throws IO Exception in case if there is any issues with logic or link
+	 */
 	@Override
 	public List<Match> getLiveMatches() {
 		
@@ -78,6 +92,9 @@ public class MatchServiceImpl implements MatchService{
         return matches;
 	}
 
+	/*
+	 * Update match and store in database 
+	 */
 	@Override
 	public void updateMatch(Match match) {
 		
@@ -96,6 +113,13 @@ public class MatchServiceImpl implements MatchService{
 		
 	}
 
+	
+	/*
+	 * Get updated table details
+	 * 
+	 * @return : List<List<String>> -> List of list of strings containing all updated details from specified link
+	 * @throws : Exception -> Throws IO Exception in case if there is any issues with logic or link
+	 */
 	@Override
 	public List<List<String>> getCWC2023PointsTable() {
 		
